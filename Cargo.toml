@@ -1,0 +1,8 @@
+[package]
+name = "sampling"
+version = "0.0.1"
+edition = "2024"
+
+[dependencies]
+rand_old = { package = "rand", version = "0.8" }
+rand_new = { package = "rand", version = "0.10" }
