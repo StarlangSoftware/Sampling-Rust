@@ -2,6 +2,9 @@
 name = "sampling"
 version = "0.0.1"
 edition = "2024"
+license = "	GPL-3.0-or-later"
+description = "Simple Sampling library"
+repository = "https://github.com/StarlangSoftware/Sampling-Rust"
 
 [dependencies]
 rand_old = { package = "rand", version = "0.8" }
