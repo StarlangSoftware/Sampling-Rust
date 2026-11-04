@@ -58,6 +58,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "65cd87c9a6d60536580b316ad985726104730a5151c99845f2490428ef91240a"
 
 [[package]]
+name = "nlptoolkit-sampling"
+version = "0.0.1"
+dependencies = [
+ "rand 0.10.3",
+ "rand 0.8.8",
+]
+
+[[package]]
 name = "ppv-lite86"
 version = "0.2.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -136,14 +144,6 @@ name = "rand_core"
 version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "63b8176103e19a2643978565ca18b50549f6101881c443590420e4dc998a3c69"
-
-[[package]]
-name = "sampling"
-version = "0.0.1"
-dependencies = [
- "rand 0.10.3",
- "rand 0.8.8",
-]
 
 [[package]]
 name = "syn"
