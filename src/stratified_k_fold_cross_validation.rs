@@ -2,13 +2,13 @@ use rand_old::prelude::StdRng;
 use rand_old::SeedableRng;
 use rand_old::seq::SliceRandom; // Brings the shuffle method into scope
 
-pub struct StratifiedKFoldCrossvalidation<T: Clone> {
+pub struct StratifiedKFoldCrossValidation<T: Clone> {
     pub K: usize,
     pub instance_lists: Vec<Vec<T>>,
     pub N: Vec<usize>
 }
 
-impl<T: Clone> StratifiedKFoldCrossvalidation<T> {
+impl<T: Clone> StratifiedKFoldCrossValidation<T> {
 
     /// A constructor of StratifiedKFoldCrossvalidation class which takes a sample as an array of array of instances, a
     /// K (K in K-fold cross-validation),
@@ -21,7 +21,7 @@ impl<T: Clone> StratifiedKFoldCrossvalidation<T> {
     ///
     /// returns: StratifiedKFoldCrossvalidation<T>
     ///
-    pub fn new(mut instance_lists: Vec<Vec<T>>, k: usize, seed: u64) -> StratifiedKFoldCrossvalidation<T> {
+    pub fn new(mut instance_lists: Vec<Vec<T>>, k: usize, seed: u64) -> StratifiedKFoldCrossValidation<T> {
         let mut n = Vec::with_capacity(instance_lists.len());
         let mut rng = StdRng::seed_from_u64(seed);
         for i in 0..instance_lists.len() {

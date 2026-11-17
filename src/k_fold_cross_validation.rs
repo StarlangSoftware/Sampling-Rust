@@ -2,13 +2,13 @@ use rand_old::seq::SliceRandom; // Brings the shuffle method into scope
 use rand_old::prelude::StdRng;
 use rand_old::SeedableRng;
 
-pub struct KFoldCrossvalidation<T: Clone> {
+pub struct KFoldCrossValidation<T: Clone> {
     pub K: usize,
     pub instance_list: Vec<T>,
     pub N: usize
 }
 
-impl<T: Clone> KFoldCrossvalidation<T> {
+impl<T: Clone> KFoldCrossValidation<T> {
 
     /// A constructor of KFoldCrossValidation class which takes a sample as an array of instances, a
     /// K (K in K-fold cross-validation),
@@ -21,7 +21,7 @@ impl<T: Clone> KFoldCrossvalidation<T> {
     ///
     /// returns: KFoldCrossvalidation<T>
     ///
-    pub fn new(mut instance_list: Vec<T>, k: usize, seed: u64) -> KFoldCrossvalidation<T> {
+    pub fn new(mut instance_list: Vec<T>, k: usize, seed: u64) -> KFoldCrossValidation<T> {
         let n = instance_list.len();
         let mut rng = StdRng::seed_from_u64(seed);
         instance_list.shuffle(&mut rng);
@@ -67,26 +67,26 @@ impl<T: Clone> KFoldCrossvalidation<T> {
 
 #[cfg(test)]
 mod tests {
-    use crate::kfoldcrossvalidation::KFoldCrossvalidation;
+    use crate::k_fold_cross_validation::KFoldCrossValidation;
 
     #[test]
     fn test_small_sample_10_fold() {
         let small_sample : Vec<i32> = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        let validation = KFoldCrossvalidation::new(small_sample, 10, 42);
+        let validation = KFoldCrossValidation::new(small_sample, 10, 42);
         assert_eq!(vec![8], validation.get_test_fold(0));
     }
 
     #[test]
     fn test_small_sample_5_fold() {
         let small_sample : Vec<i32> = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        let validation = KFoldCrossvalidation::new(small_sample, 5, 42);
+        let validation = KFoldCrossValidation::new(small_sample, 5, 42);
         assert_eq!(vec![8, 4], validation.get_test_fold(0));
     }
 
     #[test]
     fn test_small_sample_2_fold() {
         let small_sample : Vec<i32> = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        let validation = KFoldCrossvalidation::new(small_sample, 2, 42);
+        let validation = KFoldCrossValidation::new(small_sample, 2, 42);
         assert_eq!(vec![8, 4, 10, 6, 1], validation.get_test_fold(0));
     }
 
